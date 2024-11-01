@@ -35,11 +35,6 @@ blog.use("/*", async (c, next) => {
 blog.post('/', async c => {
     const body = await c.req.json();
     const authorId = c.get("userId");
-    const {success} = createBlog.safeParse(body);
-    if(!success) {
-        c.status(411);
-        return c.json({msg: "Not a valid input"});
-    }
 
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL
@@ -120,7 +115,18 @@ blog.get('/bulk', async c => {
     }).$extends(withAccelerate());
 
     try {
-        const blogs = await prisma.blog.findMany({});
+        const blogs = await prisma.blog.findMany({
+            select: {
+                content: true,
+                title: true,
+                id: true,
+                author: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
+        });
 
         return c.json({
             blogs
@@ -142,6 +148,16 @@ blog.get('/:id', async c => {
         const blog = await prisma.blog.findFirst({
             where: {
                 id: Number(id)
+            },
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                author: {
+                    select: {
+                        name: true
+                    }
+                }
             }
         });
 

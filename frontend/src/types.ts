@@ -16,3 +16,20 @@ export type ButtonType = {
     type: Type,
     onClick: MouseEventHandler<HTMLButtonElement>;
 };
+
+export type BlogCardType = {
+    authorName: string;
+    title: string;
+    content: string;
+    publishedDate: string;
+    id: number;
+}
+
+export type BlogsType = {
+    content: string;
+    title: string;
+    id: number;
+    author: {
+        name: string
+    }
+}

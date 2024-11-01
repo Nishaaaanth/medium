@@ -16,13 +16,12 @@ export type Signup = z.infer<typeof signup>;
 
 export const createBlog = z.object({
     title: z.string(),
-    author: z.string(),
+    content: z.string(),
 });
 
 export const updateBlog = z.object({
-    id: z.number(),
-    title: z.string(),
-    author: z.string(),
+    title: z.string().optional(),
+    content: z.string().optional(),
 });
 
 export type CreateBlog = z.infer<typeof createBlog>;

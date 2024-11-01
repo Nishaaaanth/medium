@@ -1,20 +1,18 @@
-import { useParams } from "react-router-dom";
+import BlogCard from "../components/BlogCard";
 import Nav from "../components/Nav";
-import { useBlog } from "../hooks";
-import BlogsLayout from "../components/BlogsLayout";
+import { useBlogs } from "../hooks";
 
-export default function Blog() {
-    const { id } = useParams();
-
-    const { loading, blog } = useBlog({
-        id: Number(id)
-    });
+export default function Blogs() {
+    const { loading, blogs } = useBlogs();
 
     if (loading) {
         return (
             <main className="bg-gray-50 h-screen">
                 <Nav avatar={"N"} />
                 <section className="pt-24">
+                    <Loader />
+                    <Loader />
+                    <Loader />
                     <Loader />
                 </section>
             </main>
@@ -23,8 +21,12 @@ export default function Blog() {
 
     return (
         <main className="bg-gray-50 h-screen">
-            <Nav avatar={"N"} />
-            {blog ? <BlogsLayout blog={blog} /> : "No content available"}
+            <Nav avatar={"N"}/>
+            <section className="bg-gray-50 pt-24">
+                {blogs.map((blog, key) => {
+                    return <BlogCard key={key} authorName={blog.author.name || "Anonymous"} title={blog.title} content={blog.content} publishedDate="Dec 3, 2023" id={blog.id} />
+                })}
+            </section>
         </main>
     );
 }

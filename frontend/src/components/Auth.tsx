@@ -25,8 +25,9 @@ export default function Auth({ type }: { type: Type }) {
             try {
                 const res = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, postSignupInputs);
                 const jwt = res.data;
+
                 localStorage.setItem("jwt", jwt);
-                navigate("/blog/bulk");
+                navigate("/blogs");
             } catch (err) {
                 alert("Error while signing up");
             }
@@ -34,8 +35,9 @@ export default function Auth({ type }: { type: Type }) {
             try {
                 const res = await axios.post(`${BACKEND_URL}/api/v1/user/signin`, postSigninInputs);
                 const jwt = res.data;
+
                 localStorage.setItem("jwt", jwt);
-                navigate("/blog/bulk");
+                navigate("/blogs");
             } catch (err) {
                 alert("Error while signing in");
             }
