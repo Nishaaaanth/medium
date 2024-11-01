@@ -2,9 +2,14 @@
 Medium like full stack application with authenticated surfing, built using ReactJS, HonoJS, Prisma, NodeJS. Frontend is deployed on Vercel.
 
 <p align="center">
-    <img src="./public/Game_of_Life.png"
-        alt="Game of Life"
-        width="300"
+    <img src="./public/medium1.png"
+        alt="Medium-Login"
+        width="500"
+        height="300"
+    />
+    <img src="./public/medium3.png"
+        alt="Medium-Article"
+        width="500"
         height="300"
     />
 </p>
@@ -34,24 +39,5 @@ cd frontend/
 npm run dev
 ```
 
-<p align="center">
-    <img src="./public/medium1.png"
-        alt="Medium"
-        width="300"
-        height="300"
-    />
-    <img src="./public/medium2.png"
-        alt="Medium"
-        width="300"
-        height="300"
-    />
-    <img src="./public/medium3.png"
-        alt="Medium"
-        width="300"
-        height="300"
-    />
-</p>
-
-
-<b>Preview -> [Medium](https://medium-eight-drab.vercel.app/)</b>
+<b align="center">Preview : [Medium](https://medium-eight-drab.vercel.app/)</b>
 
