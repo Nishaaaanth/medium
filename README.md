@@ -4,13 +4,13 @@ Medium like full stack application with authenticated surfing, built using React
 <p align="center">
     <img src="./public/medium1.png"
         alt="Medium-Login"
-        width="500"
-        height="300"
+        width="400"
+        height="200"
     />
     <img src="./public/medium3.png"
         alt="Medium-Article"
-        width="500"
-        height="300"
+        width="400"
+        height="200"
     />
 </p>
 
